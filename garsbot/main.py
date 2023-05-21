@@ -10,7 +10,7 @@ from utils import (
     parse_pdf,
     parse_txt,
     search_docs,
-    #text_to_docs,
+    text_to_docs,
     wrap_text_in_html,
 )
 
@@ -31,24 +31,24 @@ uploaded_file = st.file_uploader(
     on_change=clear_submit,
 )
 
-# index = None
-# doc = None
-# if uploaded_file is not None:
-#     if uploaded_file.name.endswith(".pdf"):
-#         doc = parse_pdf(uploaded_file)
-#     elif uploaded_file.name.endswith(".docx"):
-#         doc = parse_docx(uploaded_file)
-#     elif uploaded_file.name.endswith(".txt"):
-#         doc = parse_txt(uploaded_file)
-#     else:
-#         raise ValueError("File type not supported!")
-#     text = text_to_docs(doc)
-#     try:
-#         with st.spinner("Indexing document... This may take a while⏳"):
-#             index = embed_docs(text)
-#         st.session_state["api_key_configured"] = True
-#     except OpenAIError as e:
-#         st.error(e._message)
+index = None
+doc = None
+if uploaded_file is not None:
+    if uploaded_file.name.endswith(".pdf"):
+        doc = parse_pdf(uploaded_file)
+    elif uploaded_file.name.endswith(".docx"):
+        doc = parse_docx(uploaded_file)
+    elif uploaded_file.name.endswith(".txt"):
+        doc = parse_txt(uploaded_file)
+    else:
+        raise ValueError("File type not supported!")
+    text = text_to_docs(doc)
+    try:
+        with st.spinner("Indexing document... This may take a while⏳"):
+            index = embed_docs(text)
+        st.session_state["api_key_configured"] = True
+    except OpenAIError as e:
+        st.error(e._message)
 
 query = st.text_area("Ask a question about the document", on_change=clear_submit)
 with st.expander("Advanced Options"):
