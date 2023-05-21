@@ -8,7 +8,7 @@ def set_openai_api_key(api_key: str):
 
 
 def sidebar():
-    with st.sidebar:
+    with st.sidebar: # type: ignore
         st.markdown(
             "## How to use\n"
             "1. Enter your [OpenAI API key](https://platform.openai.com/account/api-keys) below🔑\n"  # noqa: E501
