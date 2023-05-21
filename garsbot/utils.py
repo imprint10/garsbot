@@ -12,6 +12,7 @@ from langchain.vectorstores import VectorStore
 from langchain.vectorstores.faiss import FAISS
 from openai.error import AuthenticationError
 from pypdf import PdfReader
+from typing import Union, List
 
 from embeddings import OpenAIEmbeddings
 from prompts import STUFF_PROMPT
@@ -52,7 +53,7 @@ def parse_txt(file: BytesIO) -> str:
 
 
 @st.cache(allow_output_mutation=True)
-def text_to_docs(text: str or List[str]) -> List[Document]:
+def text_to_docs(text: Union[str, List[str]]) -> List[Document]:
     """Converts a string or list of strings to a list of Documents
     with metadata."""
     if isinstance(text, str):
