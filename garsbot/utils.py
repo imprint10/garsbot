@@ -13,8 +13,8 @@ from langchain.vectorstores.faiss import FAISS
 from openai.error import AuthenticationError
 from pypdf import PdfReader
 
-from garsbot.embeddings import OpenAIEmbeddings
-from garsbot.prompts import STUFF_PROMPT
+from embeddings import OpenAIEmbeddings
+from prompts import STUFF_PROMPT
 
 
 @st.experimental_memo()

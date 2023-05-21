@@ -1,8 +1,8 @@
 import streamlit as st
 from openai.error import OpenAIError
 
-from garsbot.components.sidebar import sidebar
-from garsbot.utils import (
+from components.sidebar import sidebar
+from utils import (
     embed_docs,
     get_answer,
     get_sources,

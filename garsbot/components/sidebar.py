@@ -1,6 +1,6 @@
 import streamlit as st
 
-from garsbot.components.faq import faq
+from components.faq import faq
 
 
 def set_openai_api_key(api_key: str):
